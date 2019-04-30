@@ -3,17 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "psii-project": {
+    "psii-project-frontend": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/psii-project",
+            "outputPath": "dist/psii-project-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +27,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -58,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "psii-project:build"
+            "browserTarget": "psii-project-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "psii-project:build:production"
+              "browserTarget": "psii-project-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "psii-project:build"
+            "browserTarget": "psii-project-frontend:build"
           }
         },
         "test": {
@@ -80,7 +85,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [],
             "assets": [
@@ -103,7 +109,7 @@
         }
       }
     },
-    "psii-project-e2e": {
+    "psii-project-frontend-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +118,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "psii-project:serve"
+            "devServerTarget": "psii-project-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "psii-project:serve:production"
+              "devServerTarget": "psii-project-frontend:serve:production"
             }
           }
         },
@@ -132,5 +138,5 @@
       }
     }
   },
-  "defaultProject": "psii-project"
+  "defaultProject": "psii-project-frontend"
 }
