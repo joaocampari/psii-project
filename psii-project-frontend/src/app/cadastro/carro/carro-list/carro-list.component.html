@@ -1,3 +1,20 @@
-<p>
-  carro-list works!
-</p>
+<div class="container">
+    <div class="mb-2">
+        <ngx-datatable
+          class="material p-4 mb-2"
+          [rows]='rows'
+          [columnMode]="'force'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="'auto'">
+          <ngx-datatable-column 
+            *ngFor="let col of columns" 
+            [name]="col.name">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+              <span>{{value}}</span>              
+              <button *ngIf="col.name === 'Editar'" type="button" class="btn btn-primary">EDITAR</button>
+              </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+</div>

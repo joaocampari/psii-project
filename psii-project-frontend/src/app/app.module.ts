@@ -19,6 +19,7 @@ import { CarroListComponent } from './cadastro/carro/carro-list/carro-list.compo
 import { CidadeComponent } from './cadastro/cidade/cidade.component';
 import { CidadeFormComponent } from './cadastro/cidade/cidade-form/cidade-form.component';
 import { CidadeListComponent } from './cadastro/cidade/cidade-list/cidade-list.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CidadeListComponent } from './cadastro/cidade/cidade-list/cidade-list.c
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxDatatableModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot()
