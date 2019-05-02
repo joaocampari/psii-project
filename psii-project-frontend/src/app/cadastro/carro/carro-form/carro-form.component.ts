@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from "@angular/router"; 
 import { CarroService } from '../carro.service';
 
 @Component({
@@ -22,15 +23,19 @@ export class CarroFormComponent implements OnInit {
    * @param route 
    */
   constructor(private formBuilder: FormBuilder,
-              private route: Router,
+              private route: ActivatedRoute,
               private carroService: CarroService) { }
 
   ngOnInit() {
-    if (this.route.url !== '/cadastro/carro/new') {
-      this.isEditing = true;
-    }
-
     this.carroForm = this.createFormReactive();
+
+    this.route.params.subscribe((params: any) => {
+      if (params.id) {
+        this.isEditing = true;      
+        this.carroForm.get('id').setValue(params.id);
+      }
+    });
+    
   }
 
 
@@ -45,12 +50,11 @@ export class CarroFormComponent implements OnInit {
   }
 
   $onSave() {
-    console.log(this.carroForm.value)
-
     if (!this.isEditing) {
       this.carroService.saveCarro(this.carroForm.value).subscribe((res: any) => {});
     } else {
-      this.carroService.updateCarro(this.carroForm.value);
+      this.carroService.updateCarro(this.carroForm.value).subscribe((res: any) => {});  
     }
+
   }
 }
