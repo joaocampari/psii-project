@@ -41,15 +41,27 @@ export class ApiService {
     return this.http.delete<R>(this.urlService + url + '/' + id, this.getHeaders());
   }
 
+  /**
+   * Efetua a atualização da entidade
+   * @param _url 
+   * @param _id 
+   * @param _entity 
+   */
+  protected update<R>(_url: string, _id, _entity: R): Observable<R> {
+    return this.http.put<R>(this.urlService + _url + '/' + _id, _entity, this.getHeaders())
+    .pipe(map(data => data));
+  }
+
 
   /**
    * Efetua o getAll da entidade
    * @param _url
    * @param id 
    */
-  protected getAll<R>(_url: string, id): Observable<R> {
+  protected readAll<R>(_url: string, id): Observable<R> {
     return this.http.get<R>(this.urlService + url, this.getHeaders()).pipe(map(data => data));
   }
+
 
   private getHeaders() {
     const headers = { headers: new HttpHeaders({
