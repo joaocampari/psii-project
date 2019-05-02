@@ -20,6 +20,8 @@ import { CidadeComponent } from './cadastro/cidade/cidade.component';
 import { CidadeFormComponent } from './cadastro/cidade/cidade-form/cidade-form.component';
 import { CidadeListComponent } from './cadastro/cidade/cidade-list/cidade-list.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     BrowserModule,
     AppRoutingModule,
     NgxDatatableModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot()

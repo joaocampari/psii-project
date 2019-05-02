@@ -12,7 +12,7 @@
             [name]="col.name">
             <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
               <span>{{value}}</span>              
-              <button *ngIf="col.name === 'Editar'" type="button" class="btn btn-primary">EDITAR</button>
+              <a *ngIf="col.name === 'Editar'" class="btn btn-primary" [routerLink]="['../carro', row.id]">EDITAR</a>
               </ng-template>
           </ngx-datatable-column>
         </ngx-datatable>

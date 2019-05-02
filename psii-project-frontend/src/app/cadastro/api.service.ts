@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { url } from 'inspector';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -20,7 +19,7 @@ export class ApiService {
    * @param _entity 
    */
   protected create<R>(_url: string, _entity: R): Observable<R> {
-    return this.http.post<R>(this.urlService + url, _entity, this.getHeaders()).pipe(map(data => data));
+    return this.http.post<R>(this.urlService + _url, _entity, this.getHeaders()).pipe(map(data => data));
   }
   
   /**
@@ -29,7 +28,7 @@ export class ApiService {
    * @param id 
    */
   protected read<R>(_url: string, id): Observable<R> {
-    return this.http.get<R>(this.urlService + url + '/' + id, this.getHeaders()).pipe(map(data => data));
+    return this.http.get<R>(this.urlService + _url + '/' + id, this.getHeaders()).pipe(map(data => data));
   }
 
   /**
@@ -38,7 +37,7 @@ export class ApiService {
    * @param id 
    */
   protected delete<R>(_url: string, id): Observable<R> {
-    return this.http.delete<R>(this.urlService + url + '/' + id, this.getHeaders());
+    return this.http.delete<R>(this.urlService + _url + '/' + id, this.getHeaders());
   }
 
   /**
@@ -59,7 +58,7 @@ export class ApiService {
    * @param id 
    */
   protected readAll<R>(_url: string, id): Observable<R> {
-    return this.http.get<R>(this.urlService + url, this.getHeaders()).pipe(map(data => data));
+    return this.http.get<R>(this.urlService + _url, this.getHeaders()).pipe(map(data => data));
   }
 
 

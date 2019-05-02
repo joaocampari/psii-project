@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarroService extends ApiService {
 
+  constructor(private httpClient: HttpClient) {
+    super(httpClient);
+  }
   private carroUrl = 'carros';
 
   getCarros() {

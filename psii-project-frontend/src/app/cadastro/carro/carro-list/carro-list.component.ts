@@ -14,18 +14,21 @@ export class CarroListComponent implements OnInit {
 
   rows = [
     {
+      id: 1,
       modelo: 'GOLF',
       montadora: 'Volks',
       placa: 'ABC-1233',
       ano: '2015',
     },
     {
+      id: 1,
       modelo: 'GOLF',
       montadora: 'Volks',
       placa: 'ABC-1233',
       ano: '2015',
     },
     {
+      id: 1,
       modelo: 'GOLF',
       montadora: 'Volks',
       placa: 'ABC-1233',

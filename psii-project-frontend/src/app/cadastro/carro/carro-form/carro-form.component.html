@@ -1,3 +1,34 @@
-<p>
-  carro-form works!
-</p>
+
+<div class="container">
+  <div class="d-flex bg-secondary rounded p-2">
+    <h5 *ngIf="!isEditing" class="mt-auto white ml-2 text-white">Novo Carro</h5>
+    <h5 *ngIf="isEditing" class="mt-auto white ml-2 text-white">Ediçaõ de Carro</h5>
+  </div>
+</div>
+<div class="container">
+  <div class="jumbotron">
+      <form [formGroup]="carroForm">
+        <div class="form-row">
+          <div class="form-group mr-4">
+            <label for="modelo">Modelo</label>
+            <input formControlName="modelo" type="text" class="form-control" id="modelo">    
+          </div>
+          <div class="form-group">
+              <label for="modelo">Montadora</label>
+              <input formControlName="montadora" type="text" class="form-control" id="montadora">           
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group mr-4">
+                <label for="modelo">Placa</label>
+                <input formControlName="placa" type="text" class="form-control" id="placa">           
+              </div>
+              <div class="form-group">
+                  <label for="modelo">Ano</label>
+                  <input formControlName="ano" type="text" class="form-control" id="ano">           
+                </div>
+            </div>
+          <button type="submit" (click)="$onSave()" class="btn btn-primary float-right">Salvar</button>
+        </form>
+  </div>
+</div>
