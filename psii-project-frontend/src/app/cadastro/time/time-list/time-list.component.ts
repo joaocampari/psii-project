@@ -12,4 +12,36 @@ export class TimeListComponent implements OnInit {
   ngOnInit() {
   }
 
+  rows = [
+    {
+      id: 1,
+      nome: 'CORINTHIANS',
+      ano: '1968',
+      cidade: 'SAO PAULO',
+      estado: 'SP',
+    },
+    {
+      id: 1,
+      nome: 'CORINTHIANS',
+      ano: '1968',
+      cidade: 'SAO PAULO',
+      estado: 'SP',
+    },
+    {
+      id: 1,
+      nome: 'CORINTHIANS',
+      ano: '1968',
+      cidade: 'SAO PAULO',
+      estado: 'SP',
+    },
+
+  ];
+
+  columns = [
+    { name: 'Nome' },
+    { name: 'Ano' },
+    { name: 'Cidade' },
+    { name: 'Estado' },
+    { name: 'Editar'},       
+  ];
 }

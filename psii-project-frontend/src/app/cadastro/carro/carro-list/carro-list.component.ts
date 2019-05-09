@@ -16,21 +16,21 @@ export class CarroListComponent implements OnInit {
     {
       id: 1,
       modelo: 'GOLF',
-      montadora: 'Volks',
+      marca: 'Volks',
       placa: 'ABC-1233',
       ano: '2015',
     },
     {
       id: 1,
       modelo: 'GOLF',
-      montadora: 'Volks',
+      marca: 'Volks',
       placa: 'ABC-1233',
       ano: '2015',
     },
     {
       id: 1,
       modelo: 'GOLF',
-      montadora: 'Volks',
+      marca: 'Volks',
       placa: 'ABC-1233',
       ano: '2015',
     },
@@ -39,7 +39,7 @@ export class CarroListComponent implements OnInit {
 
   columns = [
     { name: 'Modelo' },
-    { name: 'Montadora' },
+    { name: 'Marca' },
     { name: 'Placa' },
     { name: 'Ano' },
     { name: 'Editar'},       

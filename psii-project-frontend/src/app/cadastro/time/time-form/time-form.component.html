@@ -1,3 +1,34 @@
-<p>
-  time-form works!
-</p>
+
+<div class="container">
+  <div class="d-flex bg-secondary rounded p-2">
+    <h5 *ngIf="!isEditing" class="mt-auto white ml-2 text-white">Novo Time</h5>
+    <h5 *ngIf="isEditing" class="mt-auto white ml-2 text-white">Edição de Time</h5>
+  </div>
+</div>
+<div class="container">
+  <div class="jumbotron">
+      <form [formGroup]="timeForm">
+        <div class="form-row">
+          <div class="form-group mr-4">
+            <label for="nome">Nome</label>
+            <input formControlName="nome" type="text" class="form-control" id="nome">    
+          </div>
+          <div class="form-group">
+              <label for="nome">Ano</label>
+              <input formControlName="ano" type="text" class="form-control" id="ano">           
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group mr-4">
+                <label for="nome">Cidade</label>
+                <input formControlName="cidade" type="text" class="form-control" id="cidade">           
+              </div>
+              <div class="form-group">
+                  <label for="nome">Estado</label>
+                  <input formControlName="estado" type="text" class="form-control" id="estado">           
+                </div>
+            </div>
+          <button type="submit" (click)="$onSave()" class="btn btn-primary float-right">Salvar</button>
+        </form>
+  </div>
+</div>

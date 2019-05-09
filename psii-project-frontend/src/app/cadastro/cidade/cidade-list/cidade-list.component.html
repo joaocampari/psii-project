@@ -1,3 +1,20 @@
-<p>
-  cidade-list works!
-</p>
+<div class="container">
+  <div class="mb-2">
+      <ngx-datatable
+        class="material p-4 mb-2"
+        [rows]='rows'
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'">
+        <ngx-datatable-column 
+          *ngFor="let col of columns" 
+          [name]="col.name">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+            <span>{{value}}</span>              
+            <a *ngIf="col.name === 'Editar'" class="btn btn-primary" [routerLink]="['../cidade', row.id]">EDITAR</a>
+            </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+</div>

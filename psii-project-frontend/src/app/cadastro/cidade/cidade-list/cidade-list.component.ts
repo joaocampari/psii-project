@@ -12,4 +12,37 @@ export class CidadeListComponent implements OnInit {
   ngOnInit() {
   }
 
+  rows = [
+    {
+      id: 1,
+      nome: 'AMERICANA',
+      estado: 'SP',
+      pais: 'BRASIL',
+      populacao: 'SP',
+    },
+    {
+      id: 1,
+      nome: 'AMERICANA',
+      estado: 'SP',
+      pais: 'BRASIL',
+      populacao: 'SP',
+    },
+    {
+      id: 1,
+      nome: 'AMERICANA',
+      estado: 'SP',
+      pais: 'BRASIL',
+      populacao: 'SP',
+    },
+
+  ];
+
+  columns = [
+    { name: 'Nome' },
+    { name: 'Estado' },
+    { name: 'Pais' },
+    { name: 'Populacao' },
+    { name: 'Editar'},       
+  ];
+
 }
