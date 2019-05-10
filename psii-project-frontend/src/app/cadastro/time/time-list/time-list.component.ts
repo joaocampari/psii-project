@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeService } from '../time.service';
 
 @Component({
   selector: 'app-time-list',
@@ -7,35 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private timeService: TimeService) { }
 
   ngOnInit() {
+    this.timeService.getTimes().subscribe((res: any) => {
+      this.rows = res;
+    });
   }
 
-  rows = [
-    {
-      id: 1,
-      nome: 'CORINTHIANS',
-      ano: '1968',
-      cidade: 'SAO PAULO',
-      estado: 'SP',
-    },
-    {
-      id: 1,
-      nome: 'CORINTHIANS',
-      ano: '1968',
-      cidade: 'SAO PAULO',
-      estado: 'SP',
-    },
-    {
-      id: 1,
-      nome: 'CORINTHIANS',
-      ano: '1968',
-      cidade: 'SAO PAULO',
-      estado: 'SP',
-    },
-
-  ];
+  rows:any = [];
 
   columns = [
     { name: 'Nome' },

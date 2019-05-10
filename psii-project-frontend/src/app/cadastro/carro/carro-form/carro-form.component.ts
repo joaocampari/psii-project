@@ -24,6 +24,7 @@ export class CarroFormComponent implements OnInit {
    */
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
+              private router: Router,
               private carroService: CarroService) { }
 
   ngOnInit() {
@@ -31,8 +32,11 @@ export class CarroFormComponent implements OnInit {
 
     this.route.params.subscribe((params: any) => {
       if (params.id) {
-        this.isEditing = true;      
+        this.isEditing = true;
         this.carroForm.get('id').setValue(params.id);
+        this.carroService.getCarro(params.id).subscribe((res: any) => {
+          this.carroForm.setValue(res);
+        });
       }
     });
     
@@ -46,15 +50,27 @@ export class CarroFormComponent implements OnInit {
       marca: [],
       placa: [],
       ano: []
-    })
+    });
   }
 
   $onSave() {
     if (!this.isEditing) {
       this.carroService.saveCarro(this.carroForm.value).subscribe((res: any) => {});
+      setTimeout(() => {
+        this.router.navigate(['/cadastro/carro']);
+      }, 200);
     } else {
-      this.carroService.updateCarro(this.carroForm.value).subscribe((res: any) => {});  
+      this.carroService.updateCarro(this.carroForm.value).subscribe((res: any) => {});
+      setTimeout(() => {
+        this.router.navigate(['/cadastro/carro']);
+      }, 200);
     }
+  }
 
+  $onDelete() {
+    this.carroService.deleteCarro(this.carroForm.value.id).subscribe((res: any) => {});
+    setTimeout(() => {
+      this.router.navigate(['/cadastro/carro']);
+    }, 200);
   }
 }

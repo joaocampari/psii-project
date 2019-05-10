@@ -27,5 +27,9 @@ export class CarroService extends ApiService {
   updateCarro(carro) {
     return this.update(this.carroUrl, carro.id, carro);
   }
+
+  deleteCarro(id) {
+    return this.delete(this.carroUrl, id);
+  }
 }
 

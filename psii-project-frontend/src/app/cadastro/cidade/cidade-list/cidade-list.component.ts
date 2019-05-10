@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CidadeService } from '../cidade.service';
 
 @Component({
   selector: 'app-cidade-list',
@@ -7,35 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CidadeListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cidadeService: CidadeService) { }
 
   ngOnInit() {
+    this.cidadeService.getCidades().subscribe((res: any) => {
+      this.rows = res;
+    });
   }
 
-  rows = [
-    {
-      id: 1,
-      nome: 'AMERICANA',
-      estado: 'SP',
-      pais: 'BRASIL',
-      populacao: 'SP',
-    },
-    {
-      id: 1,
-      nome: 'AMERICANA',
-      estado: 'SP',
-      pais: 'BRASIL',
-      populacao: 'SP',
-    },
-    {
-      id: 1,
-      nome: 'AMERICANA',
-      estado: 'SP',
-      pais: 'BRASIL',
-      populacao: 'SP',
-    },
-
-  ];
+  // tslint:disable-next-line: member-ordering
+  rows: any = [];
 
   columns = [
     { name: 'Nome' },

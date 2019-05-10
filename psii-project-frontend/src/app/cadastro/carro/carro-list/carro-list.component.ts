@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarroService } from '../carro.service';
 
 @Component({
   selector: 'app-carro-list',
@@ -7,35 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarroListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private carroService: CarroService) { }
 
   ngOnInit() {
+    this.carroService.getCarros().subscribe((res: any) => {
+      console.log(res);
+      this.rows = res;
+    });
   }
 
-  rows = [
-    {
-      id: 1,
-      modelo: 'GOLF',
-      marca: 'Volks',
-      placa: 'ABC-1233',
-      ano: '2015',
-    },
-    {
-      id: 1,
-      modelo: 'GOLF',
-      marca: 'Volks',
-      placa: 'ABC-1233',
-      ano: '2015',
-    },
-    {
-      id: 1,
-      modelo: 'GOLF',
-      marca: 'Volks',
-      placa: 'ABC-1233',
-      ano: '2015',
-    },
-
-  ];
+  rows:any = [];
 
   columns = [
     { name: 'Modelo' },

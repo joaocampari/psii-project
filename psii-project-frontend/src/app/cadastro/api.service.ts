@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 export class ApiService {
 
 
-  private urlService: string;
+  private urlService = 'http://localhost:8080/rest/';
 
   constructor(private http: HttpClient) {}
 
@@ -64,7 +64,7 @@ export class ApiService {
 
   private getHeaders() {
     const headers = { headers: new HttpHeaders({
-      'Content-Type': 'application-json'
+      'Content-Type': 'application/json'
     })};
 
     return headers;

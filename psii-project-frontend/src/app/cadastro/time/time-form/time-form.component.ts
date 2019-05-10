@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TimeService } from '../time.service';
 
 @Component({
   selector: 'app-time-form',
@@ -17,7 +18,9 @@ export class TimeFormComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router,
+              private timeService: TimeService) { }
 
   ngOnInit() {
     this.timeForm = this.createFormReactive();
@@ -26,6 +29,9 @@ export class TimeFormComponent implements OnInit {
       if (params.id) {
         this.isEditing = true;
         this.timeForm.get('id').setValue(params.id);
+        this.timeService.getTime(params.id).subscribe((res: any) => {
+          this.timeForm.setValue(res);
+        });
       }
     });
   }
@@ -42,10 +48,23 @@ export class TimeFormComponent implements OnInit {
 
   $onSave() {
     if (!this.isEditing) {
-      // this.timeService.saveCarro(this.carroForm.value).subscribe((res: any) => {});
+      this.timeService.saveTime(this.timeForm.value).subscribe((res: any) => {});
+      setTimeout(() => {
+        this.router.navigate(['/cadastro/time']);
+      }, 200);
     } else {
-      // this.timeService.updateCarro(this.carroForm.value).subscribe((res: any) => {});
+      this.timeService.updateTime(this.timeForm.value).subscribe((res: any) => {});
+      setTimeout(() => {
+        this.router.navigate(['/cadastro/time']);
+      }, 200);
     }
+  }
+
+  $onDelete() {
+    this.timeService.deleteTime(this.timeForm.value.id).subscribe((res: any) => {});
+    setTimeout(() => {
+      this.router.navigate(['/cadastro/time']);
+    }, 200);
   }
 
 
