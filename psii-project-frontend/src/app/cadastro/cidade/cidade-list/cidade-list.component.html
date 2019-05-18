@@ -1,4 +1,15 @@
 <div class="container">
+  <form class="form-inline mt-2" [formGroup]="filterForm">
+    <div class="form-group mb-2">
+        <select class="form-control sm-3" formControlName="filterColumn" #column>
+          <option [value]="filter" *ngFor="let filter of columnsFilter"> {{filter}}</option>
+        </select>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <input type="text" class="form-control" formControlName="filterQuery" placeholder="Pesquisa">
+    </div>
+    <button type="button" (click)="$searchByFilter()" class="btn btn-primary mb-2">Pesquisar</button>
+  </form>
   <div class="mb-2">
       <ngx-datatable
         class="material p-4 mb-2"
