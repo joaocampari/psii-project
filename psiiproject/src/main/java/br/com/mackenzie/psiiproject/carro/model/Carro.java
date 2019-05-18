@@ -1,4 +1,4 @@
-package br.com.mackenzie.psiiproject.model;
+package br.com.mackenzie.psiiproject.carro.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package br.com.mackenzie.psiiproject.model;
+package br.com.mackenzie.psiiproject.cidade.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
