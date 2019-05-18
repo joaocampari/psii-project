@@ -1,6 +1,5 @@
 package br.com.mackenzie.psiiproject.abstractcrud;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +30,6 @@ public abstract class AbstractService<T, ID> {
     }
 
     public T save(T entity) {
-        System.out.println("Criando");
         return getRepository().save(entity);
     }
 
