@@ -23,7 +23,7 @@ public interface CidadeRepository  extends JpaRepository<Cidade, Long> {
      * @param placa
      * @return Lista de cidade fitrado pela populacao
      */
-    @Query("Select c from Cidade c where c.populacao like %:populacao%")
-    List<Cidade> findByPopulacaoIgnoreCaseContaining(@Param("populacao") String populacao);
+    @Query("Select c from Cidade c where c.populacao = :populacao")
+    List<Cidade> findByPopulacao(@Param("populacao") Long populacao);
 
 }

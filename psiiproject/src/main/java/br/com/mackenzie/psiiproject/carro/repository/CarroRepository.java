@@ -15,6 +15,8 @@ public interface CarroRepository extends JpaRepository<Carro, Long> {
     List<Carro> findByModeloIgnoreCaseContaining(String modelo);
 
     List<Carro> findByMarcaIgnoreCaseContaining(String marca);
+    
+    List<Carro> findByAno(Long ano);
 
     /**
      * Foi necessário utilizar ao menos uma query personalizada devido a requisito do professor.

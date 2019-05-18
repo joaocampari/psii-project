@@ -34,7 +34,7 @@ public class TimeService extends AbstractService<Time, Long> {
             case CIDADE:
                 return getRepository().findByCidadeIgnoreCaseContaining(query);
             case ANO:
-                return getRepository().findByAnoIgnoreCaseContaining(query);
+                return getRepository().findByAno(Long.parseLong(query));
         }
 
         return new ArrayList<>();

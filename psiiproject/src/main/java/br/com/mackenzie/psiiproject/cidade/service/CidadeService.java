@@ -34,7 +34,7 @@ public class CidadeService extends AbstractService<Cidade, Long> {
             case PAIS:
                 return getRepository().findByPaisIgnoreCaseContaining(query);
             case POPULACAO:
-                return getRepository().findByPopulacaoIgnoreCaseContaining(query);
+                return getRepository().findByPopulacao(Long.parseLong(query));
         }
 
         return new ArrayList<>();

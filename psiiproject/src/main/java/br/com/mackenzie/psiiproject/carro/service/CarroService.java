@@ -33,6 +33,8 @@ public class CarroService extends AbstractService<Carro, Long> {
                 return Arrays.asList(getRepository().findById(Long.parseLong(query)).get());
             case PLACA:
                 return getRepository().findByPlacaIgnoreCaseContaining(query);
+            case ANO:
+                return getRepository().findByAno(Long.parseLong(query));
         }
 
         return new ArrayList<>();

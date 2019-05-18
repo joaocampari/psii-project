@@ -12,11 +12,11 @@ import br.com.mackenzie.psiiproject.time.model.Time;
 @Repository
 public interface TimeRepository extends JpaRepository<Time, Long> {
 
-    List<Time> findByNomeIgnoreCaseContaining(String modelo);
+    List<Time> findByNomeIgnoreCaseContaining(String nome);
 
-    List<Time> findByAnoIgnoreCaseContaining(String marca);
+    List<Time> findByAno(Long ano);
     
-    List<Time> findByEstadoIgnoreCaseContaining(String marca);
+    List<Time> findByEstadoIgnoreCaseContaining(String estado);
 
     /**
      * Foi necessário utilizar ao menos uma query personalizada devido a requisito do professor.

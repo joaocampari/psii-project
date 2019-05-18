@@ -32,6 +32,4 @@ public class CarroController extends AbstractController<Carro, Long>{
         return getService().findAllByFilter(filter, query);
     }
     
-    
-
 }
