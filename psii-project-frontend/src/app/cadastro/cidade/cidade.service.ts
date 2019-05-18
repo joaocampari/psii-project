@@ -13,7 +13,11 @@ export class CidadeService extends ApiService {
   private cidadeUrl = 'cidades';
 
   getCidades() {
-    return this.readAll<any>(this.cidadeUrl, null);
+    return this.readAll<any>(this.cidadeUrl);
+  }
+
+  getCidadesByFilter(column, query) {
+    return this.readAllByFilter<any>(this.cidadeUrl, column, query);
   }
 
   getCidade(id) {

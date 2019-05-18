@@ -13,7 +13,11 @@ export class TimeService extends ApiService {
   private timeUrl = 'times';
 
   getTimes() {
-    return this.readAll<any>(this.timeUrl, null);
+    return this.readAll<any>(this.timeUrl);
+  }
+
+  getTimesByFilter(column, filter) {
+    return this.readAllByFilter<any>(this.timeUrl, column, filter);
   }
 
   getTime(id) {

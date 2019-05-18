@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { query } from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: 'root'
@@ -57,8 +58,17 @@ export class ApiService {
    * @param _url
    * @param id 
    */
-  protected readAll<R>(_url: string, id): Observable<R> {
+  protected readAll<R>(_url: string): Observable<R> {
     return this.http.get<R>(this.urlService + _url, this.getHeaders()).pipe(map(data => data));
+  }
+
+  /**
+   * Efetua o getAll da entidade
+   * @param _url
+   * @param id 
+   */
+  protected readAllByFilter<R>(_url: string, _column: string, _query: string): Observable<R> {
+    return this.http.get<R>(this.urlService + _url + '/' + _column + '/' + query, this.getHeaders()).pipe(map(data => data));
   }
 
 

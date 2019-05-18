@@ -13,7 +13,11 @@ export class CarroService extends ApiService {
   private carroUrl = 'carros';
 
   getCarros() {
-    return this.readAll<any>(this.carroUrl, null);
+    return this.readAll<any>(this.carroUrl);
+  }
+
+  getCarrosByFilter(column, query) {
+    return this.readAllByFilter<any>(this.carroUrl, column, query);
   }
 
   getCarro(id) {
